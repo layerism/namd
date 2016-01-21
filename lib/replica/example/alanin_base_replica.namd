@@ -1,0 +1,223 @@
+#############################################################
+## JOB DESCRIPTION                                         ##
+#############################################################
+
+# Minimization and Equilibration of 
+# Protein in a Water Box
+
+
+
+#############################################################
+## INPUT FILE AND PDB                                	    
+#############################################################
+
+structure          	solalastdz.psf
+coordinates        	solalastdz.pdb
+bincoordinates     	min.coor
+#binvelocities      	min.vel
+#extendedSystem       chargeala12.restart.xsc
+
+
+#############################################################
+##
+## SIMULATION PARAMETERS                                   ##
+##
+##
+#############################################################
+#===================================================
+#			Box Setting
+#===================================================
+cellBasisVector1     	28.0	0.0  	0.0
+cellBasisVector2     	0.0   30.0	0.0
+cellBasisVector3     	0.0   0.0   40.0
+cellOrigin          	-0.02 -0.03 -0.84
+wrapAll              	on
+#===================================================
+#			Performance Tuning
+#===================================================
+pairlistdist        	14.0
+stepspercycle       	10
+hgroupcutoff        	2.8
+splitpatch          	hydrogen
+margin              	2.0
+pairlistsPerCycle			1
+#pairlistMinProcs		1
+#pairlistShrink		0.01
+#pairlistGrow			0.01
+#outputPairlists		10
+#pairlistTrigger		0.3
+#===================================================
+#			Force-Field Parameters
+#===================================================
+paraTypeCharmm	  		on
+parameters          	./par_all27_prot_lipid.inp 
+exclude             	scaled1-4
+1-4scaling          	1.0
+switching							on
+vdwForceSwitching  		on
+cutoff              	12.0
+switchdist          	10.0
+FullDirect						off
+dielectric		 				1.0
+PME                 	on
+PMEGridSpacing      	1.0
+PMETolerance         	10e-6
+PMEInterpOrder       	4
+#PMEGridSizeX        	40
+#PMEGridSizeY        	32
+#PMEGridSizeZ        	36
+#===================================================
+#			Integrator Parameters
+#===================================================
+#firsttimestep       	0
+timestep            	2.0  ;# 2fs/step
+#rigidBonds          	all  ;# needed for 2fs steps
+nonbondedFreq       	1
+fullElectFrequency  	1  
+zeroMomentum	  			on
+COMmotion		  				on
+#seed									128965
+#temperature        		$temperature			
+#############################################################
+##
+## CONTROL SETTING         (NVT/NVP)                       ##
+##
+##
+#############################################################
+#useGroupPressure     	 yes ;# needed for rigidBonds
+#useFlexibleCell       no
+#useConstantArea       no
+#===================================================
+# 			IOS-T
+#===================================================
+if {1} {
+	langevin            on     ;# do langevin dynamics
+	langevinDamping     10     ;# damping coefficient (gamma) of 1/ps
+	#langevinTemp        $temperature
+	langevinHydrogen    on    ;# don't couple langevin bath to hydrogens
+}
+#===================================================
+#			IOS-P
+#===================================================
+if {0} {
+	langevinPiston        	on	
+	langevinPistonTarget  	1.01325 ;#  in bar -> 1 atm
+	langevinPistonPeriod  	100.0
+	langevinPistonDecay   	50.0
+	langevinPistonTemp    	$temperature
+}
+if {0} {
+	BerendsenPressure									on
+	BerendsenPressureTarget						1.01325 ;# 1atm
+	BerendsenPressureCompressibility  4.57e-5 
+	BerendsenPressureRelaxationTime		100
+	BerendsenPressureFreq							10
+}
+#############################################################
+##
+## OUTPUT SETTING                       			     ##
+##
+##
+#############################################################
+#outputName          	$outputname
+#binaryoutput	  			on
+#binaryrestart	  			on
+#DCDUnitCell		  			on
+#cwd										output
+#restartfreq         	5000     ;# 500steps = every 1ps
+#dcdfreq             	1				; #1ps
+#xstFreq             	500
+#forceDCDfreq	 				500
+#velDCDfreq		  			500
+
+#outputEnergies      	1
+#outputPressure      	500
+#outputMomenta	  		500
+#outputTiming	  			1
+#############################################################
+##
+## ON THE FLY CONTROLING                       		     ##
+##
+##
+#############################################################
+#IMDon    on
+#IMDport  3000
+#IMDfreq  1
+#IMDwait  on
+
+
+#############################################################
+##
+## CONSTRAIN AND FIX ANTOM                       	     ##
+##
+##
+#############################################################
+if {0} {
+	fixedAtoms						on
+	fixedAtomsFile 				constrain.pdb 
+	fixedAtomsCol 				B 
+}
+
+if {0} {
+	constraints					on
+	conskfile						constrain.pdb
+	consref							constrain.pdb
+	conskcol						B
+	constraintScaling 	3.0
+}
+#############################################################
+##
+## MINIMIZATION                        	                 ##
+##
+##
+#############################################################
+#minimize            	1000
+#bincoordinates     	chargeala12.coor
+#binvelocities      	chargeala12.vel
+#############################################################
+##
+##                 CV                      	           ##            
+##
+##
+#############################################################
+
+#colvars              on
+#colvarsConfig        rmsd.in
+#colvarsInput			chargeala12.restart.colvars.state
+#tclForces				on
+#tclForcesScript		Qtclf.in
+
+
+adaptTempHREMD				on
+adaptTempHremdFile		namd-temp.pdb
+adaptTempHremdCol			B
+adaptTempHremdSelf		off
+#############################################################
+##
+## RUN                        	                       ##
+##
+##
+#############################################################
+#reinitvels         $temperature
+#run 5000
+#for {set i 0} {$i <= 6} {incr i 1} { 
+#	set ck [expr {3 - $i*0.5}] 
+#	constraintScaling $ck 
+	#run 100 ;# 550ns
+#} 
+#colvars              on
+#colvarsConfig        cv.in
+#############################################################
+##
+## RE-RUN                        	                       ##
+##
+##
+#############################################################
+#bincoordinates     helix300.coor
+#binvelocities      helix300.vel
+
+
+
+
+
+

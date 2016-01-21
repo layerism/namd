@@ -1,0 +1,85 @@
+module NDMeshStreamer {
+  extern module completion;
+
+  include "DataItemTypes.h";
+
+  template<class dtype> 
+  message MeshStreamerMessage {
+    int destinationPes[];
+    dtype dataItems[]; 
+  };
+
+  template<class dtype> group MeshStreamerGroupClient {};
+
+  template<class dtype> array [Max] MeshStreamerArrayClient {
+    entry void receiveRedeliveredItem(dtype data);
+  };
+
+  template<class dtype> 
+  group MeshStreamer {
+    entry void receiveAlongRoute(MeshStreamerMessage<dtype> *msg);
+    entry void flushIfIdle();
+    entry void finish();
+    entry void init(int numLocalContributors, CkCallback startCb, 
+		    CkCallback endCb, int prio, 
+		    bool usePeriodicFlushing);
+
+    entry void init(int numContributors, CkCallback startCb, 
+		    CkCallback endCb, CProxy_CompletionDetector detector,
+		    int prio, bool usePeriodicFlushing);   
+    entry void init(CkArrayID senderArrayID, CkCallback startCb, 
+		    CkCallback endCb, int prio, 
+		    bool usePeriodicFlushing); 
+
+    entry void receiveAtDestination(MeshStreamerMessage<dtype> *msg);
+  };
+
+  template<class dtype>
+  group GroupMeshStreamer : MeshStreamer<dtype> {
+    entry GroupMeshStreamer(
+	  int maxNumDataItemsBuffered, int numDimensions, 
+	  int dimensionSizes[numDimensions], 
+	  const CProxy_MeshStreamerGroupClient<dtype> &clientProxy,
+	  bool yieldFlag = 0, double progressPeriodInMs = -1.0);
+
+    entry GroupMeshStreamer(
+          int numDimensions, int dimensionSizes[numDimensions], 
+	  const CProxy_MeshStreamerGroupClient<dtype> &clientProxy,
+	  int bufferSize, bool yieldFlag = 0, 
+	  double progressPeriodInMs = -1.0);
+  };
+
+  template<class dtype, class itype>
+    group ArrayMeshStreamer : MeshStreamer<ArrayDataItem<dtype, itype> > {
+    entry ArrayMeshStreamer(
+	  int maxNumDataItemsBuffered, int numDimensions, 
+	  int dimensionSizes[numDimensions],
+	  const CProxy_MeshStreamerArrayClient<dtype> &clientProxy,
+	  bool yieldFlag = 0, double progressPeriodInMs = -1.0);
+    entry ArrayMeshStreamer(
+	  int numDimensions, int dimensionSizes[numDimensions],
+	  const CProxy_MeshStreamerArrayClient<dtype> &clientProxy,
+	  int bufferSize, bool yieldFlag = 0, 
+	  double progressPeriodInMs = -1.0);
+  };
+
+  template<class dtype>
+    group GroupChunkMeshStreamer : MeshStreamer<ChunkDataItem> {
+    entry GroupChunkMeshStreamer(
+	  int maxNumDataItemsBuffered, int numDimensions, 
+	  int dimensionSizes[numDimensions], 
+	  const CProxy_MeshStreamerGroupClient<dtype> &clientProxy,
+	  bool yieldFlag = 0, double progressPeriodInMs = -1.0, 
+	  bool userHandlesFreeing = false);
+
+    entry GroupChunkMeshStreamer(
+          int numDimensions, int dimensionSizes[numDimensions], 
+	  const CProxy_MeshStreamerGroupClient<dtype> &clientProxy,
+	  int bufferSize, bool yieldFlag = 0, 
+	  double progressPeriodInMs = -1.0, 
+	  bool userHandlesFreeing = false);
+
+  };
+
+};
+

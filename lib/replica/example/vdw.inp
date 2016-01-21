@@ -1,0 +1,170 @@
+C      0.000000  -0.110000     2.000000 ! ALLOW   PEP POL ARO
+                ! NMA pure solvent, adm jr., 3/3/93
+CA     0.000000  -0.070000     1.992400 ! ALLOW   ARO
+                ! benzene (JES)
+CC     0.000000  -0.070000     2.000000 ! ALLOW   PEP POL ARO
+                ! adm jr. 3/3/92, acetic acid heat of solvation
+CD     0.000000  -0.070000     2.000000 ! ALLOW  POL
+                ! adm jr. 3/19/92, acetate a.i. and dH of solvation
+CE1    0.000000  -0.068000     2.090000 ! 
+		! for propene, yin/adm jr., 12/95
+CE2    0.000000  -0.064000     2.080000 ! 
+		! for ethene, yin/adm jr., 12/95
+CM     0.000000  -0.110000     2.100000 ! ALLOW HEM
+                ! Heme (6-liganded): CO ligand carbon (KK 05/13/91)
+CP1    0.000000  -0.020000     2.275000   0.000000  -0.010000     1.900000 ! ALLOW   ALI
+                ! alkane update, adm jr., 3/2/92
+CP2    0.000000  -0.055000     2.175000   0.000000  -0.010000     1.900000 ! ALLOW   ALI
+                ! alkane update, adm jr., 3/2/92
+CP3    0.000000  -0.055000     2.175000   0.000000  -0.010000     1.900000 ! ALLOW   ALI
+                ! alkane update, adm jr., 3/2/92
+CPA    0.000000  -0.090000     1.800000 ! ALLOW HEM
+                ! Heme (6-liganded): porphyrin macrocycle (KK 05/13/91)
+CPB    0.000000  -0.090000     1.800000 ! ALLOW HEM
+                ! Heme (6-liganded): porphyrin macrocycle (KK 05/13/91)
+CPH1   0.000000  -0.050000     1.800000 ! ALLOW ARO
+                ! adm jr., 10/23/91, imidazole solvation and sublimation
+CPH2   0.000000  -0.050000     1.800000 ! ALLOW ARO
+                ! adm jr., 10/23/91, imidazole solvation and sublimation
+CPM    0.000000  -0.090000     1.800000 ! ALLOW HEM
+                ! Heme (6-liganded): porphyrin macrocycle (KK 05/13/91)
+CPT    0.000000  -0.090000     1.800000   0.000000  -0.090000     1.900000 ! ALLOW   ARO
+                ! benzene (JES)
+CS     0.000000  -0.110000     2.200000 ! ALLOW SUL
+                ! methylthiolate to water and F.E. of solvation, adm jr. 6/1/92
+CT1    0.000000  -0.020000     2.275000   0.000000  -0.010000     1.900000 ! ALLOW   ALI
+                ! isobutane pure solvent properties, adm jr, 2/3/92
+CT2    0.000000  -0.055000     2.175000   0.000000  -0.010000     1.900000 ! ALLOW   ALI
+                ! propane pure solvent properties, adm jr, 2/3/92
+CT3    0.000000  -0.080000     2.060000   0.000000  -0.010000     1.900000 ! ALLOW   ALI
+                ! methane/ethane a.i. and ethane pure solvent, adm jr, 2/3/92
+CY     0.000000  -0.070000     1.992400 ! ALLOW   ARO
+                ! TRP, JWK 08/29/89
+
+H      0.000000  -0.046000     0.224500 ! ALLOW PEP POL SUL ARO ALC
+                ! same as TIP3P hydrogen, adm jr., 7/20/89
+HA     0.000000  -0.022000     1.320000 ! ALLOW PEP ALI POL SUL ARO PRO ALC
+                ! methane/ethane a.i. and ethane pure solvent, adm jr, 2/3/92
+HE1    0.000000  -0.031000     1.250000 ! 
+		! for propene, yin/adm jr., 12/95
+HE2    0.000000  -0.026000     1.260000 ! 
+		! for ethene, yin/adm jr., 12/95
+HB     0.000000  -0.022000     1.320000 ! ALLOW PEP ALI POL SUL ARO PRO ALC
+                ! methane/ethane a.i. and ethane pure solvent, adm jr, 2/3/92
+HC     0.000000  -0.046000     0.224500 ! ALLOW POL
+                ! new, small polar Hydrogen, see also adm jr. JG 8/27/89
+HP     0.000000  -0.030000     1.358200   0.000000  -0.030000     1.358200 ! ALLOW ARO
+                ! JES 8/25/89 values from Jorgensen fit to hydration energy
+HR1    0.000000  -0.046000     0.900000 ! ALLOW ARO
+                ! adm jr., 6/27/90, his
+HR2    0.000000  -0.046000     0.700000 ! ALLOW ARO
+                ! adm jr., 6/27/90, his
+HR3    0.000000  -0.007800     1.468000 ! ALLOW ARO
+                ! adm jr., 3/24/92, maintain old aliphatic H VDW params
+HS     0.000000  -0.100000     0.450000 ! ALLOW SUL
+                ! methanethiol pure solvent, adm jr., 6/22/92
+HT     0.000000  -0.046000     0.224500 ! ALLOW WAT
+                !TIP3P HYDROGEN PARAMETERS, adm jr., NBFIX obsolete
+
+N      0.000000  -0.200000     1.850000   0.000000  -0.000100     1.850000 ! ALLOW   PRO
+                ! 6-31g* AcProNH2, ProNH2, 6-31g*//3-21g AcProNHCH3 RLD 4/23/93
+NC2    0.000000  -0.200000     1.850000 ! ALLOW   POL
+                ! JG 8/27/89; note: NH1 in ARG was changed to NC2.
+NH1    0.000000  -0.200000     1.850000   0.000000  -0.200000     1.550000 ! ALLOW   PEP POL ARO
+                ! This 1,4 vdW allows the C5 dipeptide minimum to exist.(LK)
+NH2    0.000000  -0.200000     1.850000 ! ALLOW   POL
+                ! adm jr.
+NH3    0.000000  -0.200000     1.850000 ! ALLOW   POL
+                ! adm jr.
+NP     0.000000  -0.200000     1.850000 ! ALLOW  PRO
+                ! N-terminal proline; from 6-31g* +ProNH2  RLD 9/28/90
+NPH    0.000000  -0.200000     1.850000 ! ALLOW HEM
+                ! Heme (6-liganded): porphyrin macrocycle (KK 05/13/91)
+NR1    0.000000  -0.200000     1.850000 ! ALLOW ARO
+                ! His, adm jr., 9/4/89
+NR2    0.000000  -0.200000     1.850000 ! ALLOW ARO
+                ! His, adm jr., 9/4/89
+NR3    0.000000  -0.200000     1.850000 ! ALLOW ARO
+                ! His, adm jr., 9/4/89
+NY     0.000000  -0.200000     1.850000 ! ALLOW   ARO
+                ! trp, JWK
+
+O      0.000000  -0.120000     1.700000   0.000000  -0.120000     1.400000 ! ALLOW   PEP POL
+                ! This 1,4 vdW allows the C5 dipeptide minimum to exist.(LK)
+OB     0.000000  -0.120000     1.700000   0.000000  -0.120000     1.400000 ! ALLOW   PEP POL ARO
+                ! adm jr., 10/17/90, acetic acid carbonyl O
+OC     0.000000  -0.120000     1.700000 ! ALLOW   POL ION
+                ! JG 8/27/89
+OH1    0.000000  -0.152100     1.770000 ! ALLOW   ALC ARO
+                ! adm jr. 8/14/90, MeOH nonbond and solvent (same as TIP3P)
+OM     0.000000  -0.120000     1.700000 ! ALLOW HEM
+                ! Heme (6-liganded): CO ligand oxygen (KK 05/13/91)
+OS     0.000000  -0.152100     1.770000 ! ALLOW   ALC ARO
+                ! adm jr. 9/17/90, avoid O* wildcard
+OT     0.000000  -0.152100     1.768200 ! ALLOW   WAT
+                !TIP3P OXYGEN PARAMETERS, adm jr., NBFIX obsolete
+      
+FE     0.010000   0.000000     0.650000 ! ALLOW HEM
+                ! Heme (6-liganded): Iron atom (KK 05/13/91)
+S      0.000000  -0.450000     2.000000 ! ALLOW   SUL ION
+                ! adm jr., 3/3/92, methanethiol/ethylmethylsulfide pure solvent
+SM     0.000000  -0.380000     1.975000 ! ALLOW  SUL  ION
+                ! adm jr., 3/3/92, dimethyldisulphide pure solvent
+SS     0.000000  -0.470000     2.200000 ! ALLOW  SUL
+                ! methylthiolate to water and F.E. of solvation, adm jr. 6/1/92
+ZN     0.000000  -0.250000     1.090000 ! ALLOW  ION
+                ! RHS March 18, 1990
+DUM    0.000000  -0.000000     0.000000 !
+                ! dummy atom
+HE     0.000000  -0.021270     1.4800   !
+                ! helium, experimental pot. energy surface, adm jr., 12/95
+NE     0.000000  -0.086000     1.5300
+                ! neon, semiempirical pot. energy surface, adm jr., 12/95
+!lipids section
+HOL      0.0       -0.046     0.2245
+HAL1     0.0       -0.022     1.3200 ! alkane, 3/92
+HAL2     0.0       -0.028     1.3400 ! alkane, yin and mackerell, 4/98
+HAL3     0.0       -0.024     1.3400 ! alkane, yin and mackerell, 4/98
+HCL      0.0       -0.046     0.2245 ! ethanolamine
+!HT       0.0       -0.046     0.2245
+HL       0.0       -0.046     0.7    ! polar H on NC4+
+HEL1     0.0       -0.031     1.25   ! alkene, yin,adm jr., 12/95
+HEL2     0.0       -0.026     1.26   ! alkene, yin,adm jr., 12/95
+!
+CL       0.0       -0.070     2.00   ! methyl acetate update
+CTL1     0.0       -0.0200    2.275 0.0 -0.01 1.9 ! alkane, 3/92
+CTL2     0.0       -0.0560    2.010 0.0 -0.01 1.9 ! alkane, 4/98, yin, adm jr.
+CTL3     0.0       -0.0780    2.040 0.0 -0.01 1.9 ! alkane, 4/98, yin, adm jr.
+CTL5     0.0       -0.0800    2.06  0.0 -0.01 1.9 ! old CTL3
+                                                  ! maintained for tetramethylammonium
+CEL1     0.0       -0.068     2.09   ! alkene, yin,adm jr., 12/95
+CEL2     0.0       -0.064     2.08   ! alkene, yin,adm jr., 12/95
+!
+OBL      0.0       -0.12      1.70  0.0 -0.12 1.4
+OCL      0.0       -0.12      1.70
+O2L      0.0       -0.12      1.70
+OHL      0.0       -0.1521    1.77
+OSL      0.0       -0.1521    1.77
+!OT       0.0       -0.1521    1.7682
+!
+NH3L     0.0       -0.20      1.85  ! ethanolamine
+NTL      0.0       -0.20      1.85  ! as all other nitogens
+!
+SL       0.0       -0.47      2.1   ! methylsulfate
+PL       0.0       -0.585     2.15  ! ADM Jr.
+!DUM      0.0       -0.00      0.0   ! dummy atom
+!
+! ions, note lack of NBFIXes
+!
+SOD      0.0       -0.0469    1.36375   ! sodium
+                   ! D. Beglovd and B. Roux, dA=-100.8 kcal/mol
+POT      0.0       -0.0870    1.76375   ! potassium
+                   ! D. Beglovd and B. Roux, dA=-82.36+2.8 = -79.56 kca/mol
+CLA      0.0       -0.150      2.27     ! chloride
+                   ! D. Beglovd and B. Roux, dA=-83.87+4.46 = -79.40 kcal/mol
+CAL      0.0       -0.120      1.367    ! Calcium
+                   ! S. Marchand and B. Roux, dA = -384.8 kcal/mol
+MG       0.0       -0.0150    1.18500   ! Magnesium
+                   ! B. Roux dA = -441.65
+CES      0.0       -0.1900    2.100
+                   ! Cesium, so far untested.
